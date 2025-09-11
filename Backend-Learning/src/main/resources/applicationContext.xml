@@ -15,7 +15,7 @@
         <constructor-arg ref="userConfigBean"/>
     </bean>
     
-    <bean id="OrderService" class="SpringBoot.Backend.Learning.Service.OrderService">
+    <bean id="orderService" class="SpringBoot.Backend.Learning.Service.OrderService" factory-method="createInstance">
         <constructor-arg ref="userService"/>
         <constructor-arg ref="userConfigBean"/>
     </bean>

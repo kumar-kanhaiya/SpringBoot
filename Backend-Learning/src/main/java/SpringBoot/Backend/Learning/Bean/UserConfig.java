@@ -20,4 +20,8 @@ public class UserConfig {
         this.className = className;
     }
 
+    public UserConfig(){
+
+    }
+
 }
