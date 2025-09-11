@@ -14,5 +14,10 @@
     <bean id="userService" class="SpringBoot.Backend.Learning.Service.UserService">
         <constructor-arg ref="userConfigBean"/>
     </bean>
+    
+    <bean id="OrderService" class="SpringBoot.Backend.Learning.Service.OrderService">
+        <constructor-arg ref="userService"/>
+        <constructor-arg ref="userConfigBean"/>
+    </bean>
 
 </beans>

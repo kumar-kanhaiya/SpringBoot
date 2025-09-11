@@ -1,5 +1,7 @@
 package SpringBoot.Backend.Learning;
 
+import SpringBoot.Backend.Learning.Bean.UserConfig;
+import SpringBoot.Backend.Learning.Service.UserService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
