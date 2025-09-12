@@ -1,7 +1,7 @@
 package SpringBoot.Backend.Learning;
 
 
-//import SpringBoot.Backend.Learning.Bean.UserConfig;
+import SpringBoot.Backend.Learning.Bean.UserConfig;
 
 import SpringBoot.Backend.Learning.Classes.Man;
 import SpringBoot.Backend.Learning.Classes.Person;
