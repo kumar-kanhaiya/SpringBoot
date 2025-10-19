@@ -40,4 +40,19 @@ public class DepartmentServiceImpl implements DepartmentService {
             return "id does not place in database";
         }
     }
+
+    @Override
+    public Department updateDepartment(long id, Department department) {
+        Department prev = repository.findById(id).get();
+        if(repository.findById(id) != null){
+
+            prev.setDepartmentAdd(department.getDepartmentAdd());
+            prev.setDepartmentName(department.getDepartmentName());
+            prev.setDepartmentCode(department.getDepartmentCode());
+
+        }
+
+        return repository.save(prev);
+
+    }
 }
