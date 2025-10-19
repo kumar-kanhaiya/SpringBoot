@@ -1,0 +1,23 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Define UserConfig bean -->
+    <bean id="userConfigBean" class="SpringBoot.Backend.Learning.Bean.UserConfig">
+        <property name="name" value="John Doe"/>
+        <property name="className" value="ExampleClass"/>
+    </bean>
+
+    <!-- Inject UserConfig into UserService using constructor injection -->
+    <bean id="userService" class="SpringBoot.Backend.Learning.Service.UserService">
+        <constructor-arg ref="userConfigBean"/>
+    </bean>
+    
+    <bean id="orderService" class="SpringBoot.Backend.Learning.Service.OrderService" factory-method="createInstance">
+        <constructor-arg ref="userService"/>
+        <constructor-arg ref="userConfigBean"/>
+    </bean>
+
+</beans>
