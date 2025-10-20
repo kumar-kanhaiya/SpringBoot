@@ -2,12 +2,15 @@ package com.company.SpringBootStart.Service;
 
 
 import com.company.SpringBootStart.Entity.Department;
+import com.company.SpringBootStart.error.DepartmentNotFoundException;
 import com.company.SpringBootStart.repository.DepartmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 @Service
 public class DepartmentServiceImpl implements DepartmentService {
@@ -27,8 +30,13 @@ public class DepartmentServiceImpl implements DepartmentService {
     }
 
     @Override
-    public Department fetchDepartmentById(long id) {
-        return repository.findById(id).get();
+    public Department fetchDepartmentById(long id) throws DepartmentNotFoundException {
+
+        Optional<Department> department =  repository.findById(id);
+        if(!department.isPresent()){
+            throw new DepartmentNotFoundException("Department not found");
+        }
+        return department.get();
     }
 
     @Override
